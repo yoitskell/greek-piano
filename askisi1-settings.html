@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ρυθμίσεις Άσκησης 1</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎹 Άσκηση 1</h1>
+
+    <h2>Ρυθμίσεις</h2>
+
+    <h3>Νότες</h3>
+
+<label><input id="noteC" type="checkbox" checked> Ντο</label><br>
+<label><input id="noteD" type="checkbox" checked> Ρε</label><br>
+<label><input id="noteE" type="checkbox" checked> Μι</label><br>
+<label><input id="noteF" type="checkbox" checked> Φα</label><br>
+<label><input id="noteG" type="checkbox" checked> Σολ</label><br>
+<label><input id="noteA" type="checkbox" checked> Λα</label><br>
+<label><input id="noteB" type="checkbox" checked> Σι</label><br>
+
+<br>
+
+<h3>Οκτάβες</h3>
+
+<label><input id="octave2" type="checkbox"> 2η οκτάβα</label><br>
+<label><input id="octave3" type="checkbox" checked> 3η οκτάβα</label><br>
+<label><input id="octave4" type="checkbox" checked> 4η οκτάβα</label><br>
+<label><input id="octave5" type="checkbox"> 5η οκτάβα</label><br>
+<label><input id="octave6" type="checkbox"> 6η οκτάβα</label><br>
+
+    <br>
+
+<h3>Πλήθος νοτών</h3>
+
+<input
+    id="questions"
+    type="number"
+    value="20"
+    min="1"
+    max="100"
+>
+
+<br><br>
+
+<label>
+    <input
+        id="forever"
+        type="checkbox"
+    >
+    Απεριόριστη άσκηση
+</label>
+
+<br><br>
+
+    <label>
+        <input id="showName" type="checkbox" checked>
+        Εμφάνιση ονόματος νότας
+    </label>
+
+    <br><br>
+
+    <button id="startExercise">
+    ▶ Έναρξη Άσκησης
+</button>
+
+</div>
+
+<script>
+    const savedSettings = JSON.parse(
+        localStorage.getItem("exercise1Settings")
+    );
+
+    if (savedSettings) {
+
+        document.getElementById("noteC").checked = savedSettings.notes.c;
+        document.getElementById("noteD").checked = savedSettings.notes.d;
+        document.getElementById("noteE").checked = savedSettings.notes.e;
+        document.getElementById("noteF").checked = savedSettings.notes.f;
+        document.getElementById("noteG").checked = savedSettings.notes.g;
+        document.getElementById("noteA").checked = savedSettings.notes.a;
+        document.getElementById("noteB").checked = savedSettings.notes.b;
+
+        document.getElementById("octave2").checked = savedSettings.octaves[2];
+        document.getElementById("octave3").checked = savedSettings.octaves[3];
+        document.getElementById("octave4").checked = savedSettings.octaves[4];
+        document.getElementById("octave5").checked = savedSettings.octaves[5];
+        document.getElementById("octave6").checked = savedSettings.octaves[6];
+
+       document.getElementById("questions").value =
+    savedSettings.questions;
+
+document.getElementById("forever").checked =
+    savedSettings.forever || false;
+
+document.getElementById("showName").checked =
+    savedSettings.showName;
+
+    }
+</script>
+
+<script src="js/appSettings.js"></script>
+<script src="js/exercise1-settings.js"></script>
+
+
+</body>
+
+</html>

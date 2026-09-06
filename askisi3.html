@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Άσκηση 3 - Εξάσκηση στα Λάθη</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="exercise-container">
+
+        <div class="top-bar">
+
+            <button
+                id="exitButton"
+                class="exit-button">
+                ✕
+            </button>
+
+            <div id="midiStatus">
+                🔴 MIDI: Μη συνδεδεμένο
+            </div>
+
+            <div id="progress">
+                0 / 10
+            </div>
+
+        </div>
+
+
+        <h2>🎯 Εξάσκηση στα Λάθη</h2>
+
+
+        <div
+            id="staff"
+            class="staff-area">
+        </div>
+
+
+        <div
+            id="noteName">
+        </div>
+
+
+        <p id="feedback">
+        </p>
+
+
+    </div>
+
+
+    <!-- Παράθυρο επιβεβαίωσης εξόδου -->
+
+    <div
+        id="exitModal"
+        class="modal">
+
+        <div class="modalContent">
+
+            <h3>Έξοδος από την άσκηση;</h3>
+
+            <button id="confirmExit">
+                Ναι
+            </button>
+
+            <button id="cancelExit">
+                Όχι
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/notes.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.2/build/cjs/vexflow.js">
+    </script>
+
+<script src="js/appSettings.js"></script>
+<script src="js/inputManager.js"></script>
+<script src="js/midiInput.js"></script>
+    <script src="js/exercise3.js"></script>
+<script src="js/orientation.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Greek Piano — Λογαριασμός</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <main class="account-container">
+
+        <!-- Πίσω -->
+
+        <button
+            class="account-back-button"
+            onclick="window.location.href='index.html'">
+
+            ← Πίσω
+
+        </button>
+
+
+        <!-- Τίτλος -->
+
+        <h1>👤 Λογαριασμός</h1>
+
+
+        <!-- Ενημέρωση -->
+
+        <p class="account-intro">
+
+            Μπορείς να χρησιμοποιείς το Greek Piano
+            χωρίς λογαριασμό.
+
+            <br>
+
+            Δημιούργησε έναν λογαριασμό αν θέλεις
+            να αποθηκεύεις την πρόοδό σου και να
+            μπορείς να τη χρησιμοποιείς και σε
+            άλλη συσκευή.
+
+        </p>
+
+
+        <!-- Επιλογές -->
+
+        <section class="account-options" id="accountOptions">
+
+    <div class="account-card">
+
+        <p>
+           🆕 Δεν έχεις ακόμα λογαριασμό;
+        </p>
+
+        <button id="createAccountButton">
+           Δημιουργία λογαριασμού
+        </button>
+
+    </div>
+
+
+    <div class="account-card">
+
+        <p>
+          🔑  Έχεις ήδη λογαριασμό;
+        </p>
+
+        <button id="loginButton">
+            Σύνδεση
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================================ -->
+<!-- Φόρμα δημιουργίας λογαριασμού -->
+<!-- ================================ -->
+
+<section
+    class="account-form"
+    id="createAccountForm"
+    style="display: none;">
+
+    <h2>🆕 Δημιουργία λογαριασμού</h2>
+
+    <label for="username">
+        Όνομα χρήστη
+    </label>
+
+    <input
+        type="text"
+        id="username"
+        autocomplete="username"
+        placeholder="Όνομα χρήστη">
+
+
+    <label for="password">
+        Κωδικός
+    </label>
+
+    <input
+        type="password"
+        id="password"
+        autocomplete="new-password"
+        placeholder="Κωδικός">
+
+
+    <label for="confirmPassword">
+        Επιβεβαίωση κωδικού
+    </label>
+
+    <input
+        type="password"
+        id="confirmPassword"
+        autocomplete="new-password"
+        placeholder="Επιβεβαίωση κωδικού">
+
+
+    <button id="submitCreateAccount">
+        Δημιουργία λογαριασμού
+    </button>
+
+
+    <button
+        id="cancelCreateAccount"
+        class="secondary-button">
+
+        ← Πίσω
+
+    </button>
+
+
+    <div
+        id="createAccountMessage"
+        class="account-message">
+    </div>
+
+</section>
+        <!-- ================================ -->
+<!-- Φόρμα σύνδεσης -->
+<!-- ================================ -->
+
+<section
+    class="account-form"
+    id="loginForm"
+    style="display: none;">
+
+    <h2>🔑 Σύνδεση</h2>
+
+    <label for="loginUsername">
+        Όνομα χρήστη
+    </label>
+
+    <input
+        type="text"
+        id="loginUsername"
+        autocomplete="username"
+        placeholder="Όνομα χρήστη">
+
+
+    <label for="loginPassword">
+        Κωδικός
+    </label>
+
+    <input
+        type="password"
+        id="loginPassword"
+        autocomplete="current-password"
+        placeholder="Κωδικός">
+
+
+    <button id="submitLogin">
+        Σύνδεση
+    </button>
+
+
+    <button
+        id="cancelLogin"
+        class="secondary-button">
+
+        ← Πίσω
+
+    </button>
+
+
+    <div
+        id="loginMessage"
+        class="account-message">
+    </div>
+
+</section>
+
+    </main>
+
+<script src="js/appSettings.js"></script>
+    <script src="js/account.js"></script>
+
+</body>
+
+</html>

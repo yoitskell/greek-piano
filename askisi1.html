@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Άσκηση 1 - Greek Piano</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="exercise-container">
+
+    <div class="top-bar">
+        <button class="exit-button">✕</button>
+        
+    </div>
+
+<div class="staff-area">
+
+    <p id="progress">1 / 20</p>
+    
+    <div id="staff"></div>
+
+</div>
+    
+<h2 id="noteName"></h2>
+
+    <h2>Βρες τη σωστή νότα!</h2>
+
+    <p id="feedback"></p>
+
+
+
+
+<p id="midiStatus">
+    🔴 MIDI: Μη συνδεδεμένο
+</p>
+
+
+
+<div id="debugButtons">
+
+
+</div>
+
+</div>
+
+<div id="exitModal" class="modal">
+
+    <div class="modalContent">
+
+        <h3>Θέλεις σίγουρα να αποχωρήσεις;</h3>
+
+        <p>
+            Η άσκηση θα τερματιστεί και θα επιστρέψεις στο κεντρικό μενού.
+        </p>
+
+        <button id="confirmExit">
+            Ναι, έξοδος
+        </button>
+
+        <button id="cancelExit">
+            Όχι, συνέχεια άσκησης
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="https://unpkg.com/vexflow@4.2.2/build/cjs/vexflow.js"></script>
+<script src="js/notes.js"></script>
+<script src="js/appSettings.js"></script>
+<script src="js/inputManager.js"></script>
+<script src="js/midiInput.js"></script> 
+<script src="js/exercise1.js"></script>
+<script src="js/orientation.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="el">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Greek Piano — Ρυθμίσεις</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <main class="settings-container">
+
+       <button
+    class="settings-back-button"
+    onclick="window.location.href='index.html'">
+    ← Πίσω
+</button>
+
+
+        <h1>⚙️ Ρυθμίσεις</h1>
+
+
+        <!-- ================================ -->
+        <!-- ΕΜΦΑΝΙΣΗ -->
+        <!-- ================================ -->
+
+        <section class="settings-section">
+
+            <h2>🎨 Εμφάνιση</h2>
+
+
+            <div class="setting-row">
+
+                <div>
+                    <strong>Θέμα</strong>
+                    <p>Επίλεξε φωτεινή ή σκοτεινή εμφάνιση.</p>
+                </div>
+
+                <select id="themeSetting">
+
+                    <option value="light">
+                        ☀️ Φωτεινή
+                    </option>
+
+                    <option value="dark">
+                        🌙 Σκοτεινή
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+                    <strong>Μέγεθος γραμματοσειράς</strong>
+                    <p>Αλλάζει το μέγεθος των κειμένων και των κουμπιών.</p>
+                </div>
+
+                <select id="fontSizeSetting">
+
+                    <option value="small">
+                        Μικρό
+                    </option>
+
+                    <option value="normal">
+                        Κανονικό
+                    </option>
+
+                    <option value="large">
+                        Μεγάλο
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+                    <strong>Λειτουργία αχρωματοψίας</strong>
+                    <p>Χρησιμοποιεί πιο ευδιάκριτα χρώματα για το feedback.</p>
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="colorBlindSetting">
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================ -->
+        <!-- ΗΧΟΣ -->
+        <!-- ================================ -->
+
+        <section class="settings-section">
+
+            <h2>🔊 Ήχος</h2>
+
+
+            <div class="setting-row">
+
+                <div>
+                    <strong>Ήχοι πλήκτρων</strong>
+                    <p>Αναπαραγωγή ήχου όταν παίζεται μια νότα.</p>
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="keySoundsSetting"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+                    <strong>Ήχοι κουμπιών</strong>
+                    <p>Ήχος όταν πατάς ένα κουμπί.</p>
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="buttonSoundsSetting"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================ -->
+        <!-- MIDI & ΕΛΕΓΧΟΙ -->
+        <!-- ================================ -->
+
+        <section class="settings-section">
+
+            <h2>🎹 MIDI & Έλεγχοι</h2>
+
+
+            <div class="setting-test">
+
+                <h3>Έλεγχος MIDI</h3>
+
+                <p>
+                    Έλεγξε αν το πιάνο στέλνει σωστά νότες
+                    μέσω MIDI.
+                </p>
+
+                <div
+                    id="midiTestStatus"
+                    class="test-status">
+                    🔴 Δεν έχει γίνει έλεγχος
+                </div>
+
+                <button id="midiTestButton">
+                    🎹 Έναρξη ελέγχου MIDI
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+<script src="js/appSettings.js"></script>
+<script src="js/notes.js"></script>
+    <script src="js/settings.js"></script>
+
+</body>
+
+</html>

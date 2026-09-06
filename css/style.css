@@ -1,0 +1,980 @@
+
+/* ==================================
+   ΒΑΣΙΚΑ
+   ================================== */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+button {
+    width: 320px;
+    padding: 20px;
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: #eeeeee;
+}
+
+
+/* ==================================
+   ΓΕΝΙΚΗ ΑΣΚΗΣΗ
+   ================================== */
+
+.exercise-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.exit-button {
+    width: 50px;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.staff-area {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 70px;
+}
+
+.exercise-container h2 {
+    margin-top: 40px;
+    font-size: 28px;
+}
+
+.exercise-container p {
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+#noteButtons {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.noteButton {
+    width: 80px;
+    height: 45px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.noteButton:hover {
+    transform: scale(1.05);
+}
+
+
+/* ==================================
+   MODAL
+   ================================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.modal button {
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+/* ==================================
+   ΑΣΚΗΣΗ 2
+   ================================== */
+
+.exercise2-container {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.exercise2-container h2 {
+    margin: 0 0 20px 0;
+    font-size: 28px;
+}
+
+.exercise2-container #progress {
+    margin: 0 0 30px 0;
+    font-size: 20px;
+}
+
+#staff {
+    width: min(500px, 90vw);
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+#staff svg {
+    width: 100%;
+    height: auto;
+}
+
+.exercise2-container #feedback {
+    min-height: 30px;
+    margin-top: 25px;
+    font-size: 20px;
+}
+
+
+/* ==================================
+   MOBILE - ΚΕΝΤΡΙΚΟ ΜΕΝΟΥ
+   ================================== */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .container button {
+        width: 90%;
+        max-width: 350px;
+        padding: 18px 15px;
+        margin: 8px 0;
+        font-size: 19px;
+        border-radius: 14px;
+    }
+}
+
+
+/* ==================================
+   ΑΣΚΗΣΗ 2 - ΜΙΚΡΕΣ ΟΘΟΝΕΣ
+   ================================== */
+
+@media (max-width: 900px) and (orientation: landscape) {
+
+    .exercise2-container {
+        min-height: calc(100vh - 50px);
+        padding: 10px;
+        justify-content: center;
+    }
+
+    .exercise2-container h2 {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+
+    .exercise2-container #progress {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    #staff {
+        width: min(500px, 85vw);
+    }
+
+    .exercise2-container #feedback {
+        margin-top: 10px;
+        font-size: 17px;
+    }
+}
+
+
+/* ==================================
+   ΣΤΑΤΙΣΤΙΚΑ
+   ================================== */
+
+.stats-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 40px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stats-container h1 {
+    font-size: 36px;
+    margin: 20px 0 35px;
+    text-align: center;
+}
+
+.stats-back-button {
+    align-self: flex-start;
+    width: auto;
+    padding: 10px 18px;
+    margin: 0;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+
+/* Συνοπτικές κάρτες */
+
+.stats-summary {
+    width: 100%;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 18px;
+    padding: 22px 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.stat-icon {
+    font-size: 30px;
+}
+
+.stat-card h3 {
+    margin: 10px 0 5px;
+    font-size: 17px;
+}
+
+.stat-card p {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+/* Συνολική επίδοση */
+
+.accuracy-card {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 25px;
+    padding: 25px;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.accuracy-card h2 {
+    margin: 0 0 15px;
+}
+
+.percentage {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.accuracy-card p {
+    margin-bottom: 0;
+}
+
+
+/* Ανά άσκηση */
+
+.exercise-stats {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 30px;
+}
+
+.exercise-stats > h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.exercise-stat-card {
+    background: white;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.exercise-stat-card h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 21px;
+}
+
+.exercise-stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 17px;
+}
+
+.exercise-stat-row:last-child {
+    border-bottom: none;
+}
+
+.exercise-stat-row strong {
+    font-size: 18px;
+}
+
+
+/* ==================================
+   ΣΤΑΤΙΣΤΙΚΑ - MOBILE
+   ================================== */
+
+@media (max-width: 700px) {
+
+    .stats-container {
+        padding: 25px 15px 40px;
+    }
+
+    .stats-container h1 {
+        font-size: 30px;
+        margin: 15px 0 25px;
+    }
+
+    .stats-summary {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 18px 10px;
+    }
+
+    .stat-card p {
+        font-size: 26px;
+    }
+
+    .percentage {
+        font-size: 42px;
+    }
+
+    .exercise-stat-card {
+        padding: 18px;
+    }
+}
+
+
+/* ==================================
+   MODAL - ΑΣΚΗΣΗ 3
+   ================================== */
+
+#exercise3Message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#exercise3Message .modal-box {
+    position: relative;
+    width: 90%;
+    max-width: 420px;
+    background: white;
+    border-radius: 16px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+#exercise3Message h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+#exercise3Message p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+#exercise3Message .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+
+/* ==================================
+   ΘΕΜΑ ΕΦΑΡΜΟΓΗΣ
+   ================================== */
+
+body.dark-theme {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+}
+
+body.dark-theme button {
+    background-color: #2b2b2b;
+    color: #f5f5f5;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+body.dark-theme button:hover {
+    background-color: #3a3a3a;
+}
+
+
+/* Modals */
+
+body.dark-theme .modalContent {
+    background-color: #2b2b2b;
+    color: #f5f5f5;
+}
+
+body.dark-theme #exercise3Message .modal-box {
+    background-color: #2b2b2b;
+    color: #f5f5f5;
+}
+
+
+/* Στατιστικά */
+
+body.dark-theme .stat-card,
+body.dark-theme .accuracy-card,
+body.dark-theme .exercise-stat-card {
+    background-color: #2b2b2b;
+    color: #f5f5f5;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+body.dark-theme .exercise-stat-row {
+    border-bottom-color: #444;
+}
+
+
+/* Κείμενο */
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme p,
+body.dark-theme span {
+    color: #f5f5f5;
+}
+
+
+/* Mobile μήνυμα Άσκησης 2 */
+
+body.dark-theme::before {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+}
+
+
+/* ==================================
+   ΜΕΓΕΘΟΣ ΓΡΑΜΜΑΤΟΣ ΕΦΑΡΜΟΓΗΣ
+   ================================== */
+
+body.font-small {
+    font-size: 14px;
+}
+
+body.font-small button {
+    font-size: 17px;
+}
+
+body.font-small h1 {
+    font-size: 34px;
+}
+
+body.font-small h2 {
+    font-size: 24px;
+}
+
+body.font-small h3 {
+    font-size: 18px;
+}
+
+body.font-normal {
+    font-size: 16px;
+}
+
+body.font-large {
+    font-size: 18px;
+}
+
+body.font-large button {
+    font-size: 23px;
+}
+
+body.font-large h1 {
+    font-size: 46px;
+}
+
+body.font-large h2 {
+    font-size: 32px;
+}
+
+body.font-large h3 {
+    font-size: 24px;
+}
+
+
+/* ==================================
+   ΛΕΙΤΟΥΡΓΙΑ ΑΧΡΩΜΑΤΟΨΙΑΣ
+   ================================== */
+
+body.color-blind-mode {
+    --correct-color: #0072B2;
+    --wrong-color: #D55E00;
+}
+
+body.color-blind-mode .correct {
+    color: var(--correct-color);
+}
+
+body.color-blind-mode .wrong {
+    color: var(--wrong-color);
+}
+
+
+/* ==================================
+   ΛΟΓΑΡΙΑΣΜΟΣ
+   ================================== */
+
+.account-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 40px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.account-back-button {
+    align-self: flex-start;
+    width: auto;
+    padding: 10px 18px;
+    margin: 0;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.account-container h1 {
+    font-size: 36px;
+    margin: 20px 0 20px;
+    text-align: center;
+}
+
+.account-intro {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 0 35px;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 17px;
+}
+
+.account-options {
+    width: 100%;
+    max-width: 700px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.account-card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-sizing: border-box;
+}
+
+.account-card h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+.account-card p {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.account-card button {
+    width: 100%;
+    max-width: 300px;
+    margin: 0;
+}
+
+.account-message {
+    min-height: 30px;
+    margin-top: 25px;
+    text-align: center;
+    font-size: 17px;
+}
+
+
+/* Account - Dark mode */
+
+body.dark-theme .account-card {
+    background-color: #2b2b2b;
+    color: #f5f5f5;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+
+/* Account - Mobile */
+
+@media (max-width: 700px) {
+
+    .account-container {
+        padding: 25px 15px 40px;
+    }
+
+    .account-container h1 {
+        font-size: 30px;
+    }
+
+    .account-intro {
+        font-size: 16px;
+    }
+
+    .account-options {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .account-card {
+        padding: 20px 15px;
+    }
+}
+
+
+/* ==================================
+   ΦΟΡΜΑ ΛΟΓΑΡΙΑΣΜΟΥ
+   ================================== */
+
+.account-form {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+.account-form h2 {
+    text-align: center;
+    margin: 0 0 25px;
+}
+
+.account-form label {
+    margin: 12px 0 6px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.account-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    font-size: 17px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    outline: none;
+}
+
+.account-form input:focus {
+    border-color: #888888;
+}
+
+.account-form button {
+    width: 100%;
+    margin: 15px 0 0;
+}
+
+.account-form .secondary-button {
+    background-color: #eeeeee;
+    color: #333333;
+}
+
+body.dark-theme .account-form input {
+    background-color: #333333;
+    color: #f5f5f5;
+    border-color: #555555;
+}
+
+body.dark-theme .account-form input::placeholder {
+    color: #bbbbbb;
+}
+
+body.dark-theme .account-form .secondary-button {
+    background-color: #3a3a3a;
+    color: #f5f5f5;
+}
+
+
+/* ==================================
+   ΡΥΘΜΙΣΕΙΣ
+   ================================== */
+
+.settings-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 40px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.settings-back-button {
+    align-self: flex-start;
+    width: auto;
+    padding: 10px 18px;
+    margin: 0;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.settings-container h1 {
+    font-size: 36px;
+    margin: 20px 0 35px;
+    text-align: center;
+}
+
+.settings-section {
+    width: 100%;
+    max-width: 900px;
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.settings-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.setting-row:last-child {
+    border-bottom: none;
+}
+
+.setting-row p {
+    margin: 5px 0 0;
+    color: #666666;
+    font-size: 15px;
+}
+
+.setting-row select {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    font-size: 16px;
+}
+
+.setting-test {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.setting-test button {
+    margin-top: 10px;
+}
+
+.test-status {
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+
+/* Settings - Dark mode */
+
+body.dark-theme .settings-section {
+    background-color: #2b2b2b;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+body.dark-theme .setting-row {
+    border-bottom-color: #444444;
+}
+
+body.dark-theme .setting-row p {
+    color: #bbbbbb;
+}
+
+body.dark-theme .setting-row select {
+    background-color: #333333;
+    color: #f5f5f5;
+    border-color: #555555;
+}
+
+
+@media (max-width: 700px) {
+
+    .settings-container {
+        padding: 25px 15px 40px;
+    }
+
+    .settings-container h1 {
+        font-size: 30px;
+    }
+
+    .settings-section {
+        padding: 20px;
+    }
+
+    .setting-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+/* ==================================
+   ΚΡΥΦΗ ΠΡΟΟΔΟΣ
+   ================================== */
+
+#topProgress {
+    display: none;
+}
+
+
+/* ==================================
+   ΠΡΟΕΙΔΟΠΟΙΗΣΗ ΠΡΟΣΑΝΑΤΟΛΙΣΜΟΥ
+   ================================== */
+
+#orientationModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 9999;
+}
+
+.orientation-box {
+    width: 90%;
+    max-width: 420px;
+    background: white;
+    border-radius: 20px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+}
+
+.orientation-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.orientation-box h2 {
+    margin: 0 0 15px;
+    font-size: 24px;
+}
+
+.orientation-box p {
+    margin: 0 0 25px;
+    line-height: 1.5;
+    font-size: 17px;
+}
+
+.orientation-box button {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+
+/* Dark mode */
+
+body.dark-theme #orientationModal {
+    background: rgba(0, 0, 0, 0.65);
+}
+
+body.dark-theme .orientation-box {
+    background-color: #2b2b2b;
+    color: #f5f5f5;
+}

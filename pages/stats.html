@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Greek Piano - Στατιστικά</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <main class="stats-container">
+
+        <button
+            class="stats-back-button"
+            onclick="window.location.href='../index.html'">
+            ← Πίσω
+        </button>
+
+        <h1>📊 Στατιστικά</h1>
+
+        <button id="resetStatsButton">
+    Επαναφορά στατιστικών
+</button>
+
+        <section class="stats-summary">
+
+            <div class="stat-card">
+                <span class="stat-icon">🎯</span>
+                <h3>Προσπάθειες</h3>
+                <p id="totalAttempts">0</p>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">🎹</span>
+                <h3>Νότες</h3>
+                <p id="totalNotes">0</p>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">✅</span>
+                <h3>Σωστές</h3>
+                <p id="totalCorrect">0</p>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">❌</span>
+                <h3>Λάθος</h3>
+                <p id="totalWrong">0</p>
+            </div>
+
+        </section>
+
+
+        <section class="accuracy-card">
+
+            <h2>Συνολική επίδοση</h2>
+
+            <div class="percentage" id="totalPercentage">
+                0%
+            </div>
+
+            <p>Ποσοστό σωστών απαντήσεων</p>
+
+        </section>
+
+
+        <section class="exercise-stats">
+
+            <h2>Ανά άσκηση</h2>
+
+
+            <div class="exercise-stat-card">
+
+                <h3>🎹 Άσκηση 1 — Εύρεση Νότας</h3>
+
+                <div class="exercise-stat-row">
+                    <span>Προσπάθειες</span>
+                    <strong id="exercise1Attempts">0</strong>
+                </div>
+
+                <div class="exercise-stat-row">
+                    <span>Νότες</span>
+                    <strong id="exercise1Notes">0</strong>
+                </div>
+
+                <div class="exercise-stat-row">
+                    <span>Σωστές</span>
+                    <strong id="exercise1Correct">0</strong>
+                </div>
+
+                <div class="exercise-stat-row">
+                    <span>Λάθος</span>
+                    <strong id="exercise1Wrong">0</strong>
+                </div>
+
+                <div class="exercise-stat-row">
+                    <span>Επιτυχία</span>
+                    <strong id="exercise1Percentage">0%</strong>
+                </div>
+
+            </div>
+
+
+            <div class="exercise-stat-card">
+
+                <h3>🎼 Άσκηση 2 — Μικρές Μελωδίες</h3>
+
+                <div class="exercise-stat-row">
+                    <span>Προσπάθειες</span>
+                    <strong id="exercise2Attempts">0</strong>
+                </div>
+
+                <div class="exercise-stat-row">
+                    <span>Νότες</span>
+                    <strong id="exercise2Notes">0</strong>
+                </div>
+
+                <div class="exercise-stat-row">
+                    <span>Σωστές</span>
+                    <strong id="exercise2Correct">0</strong>
+                </div>
+
+                <div class="exercise-stat-row">
+                    <span>Λάθος</span>
+                    <strong id="exercise2Wrong">0</strong>
+                </div>
+
+                <div class="exercise-stat-row">
+                    <span>Επιτυχία</span>
+                    <strong id="exercise2Percentage">0%</strong>
+                </div>
+
+                      </div>
+
+            <div class="exercise-stat-card">
+
+                <h3>🎯 Άσκηση 3 — Εξάσκηση στα Λάθη</h3>
+
+                <div class="exercise-stat-row">
+                    <span>Προσπάθειες</span>
+                    <strong id="exercise3Attempts">0</strong>
+                </div>
+
+                <div class="exercise-stat-row">
+                    <span>Νότες</span>
+                    <strong id="exercise3Notes">0</strong>
+                </div>
+
+                <div class="exercise-stat-row">
+                    <span>Σωστές</span>
+                    <strong id="exercise3Correct">0</strong>
+                </div>
+
+                <div class="exercise-stat-row">
+                    <span>Λάθος</span>
+                    <strong id="exercise3Wrong">0</strong>
+                </div>
+
+                <div class="exercise-stat-row">
+                    <span>Επιτυχία</span>
+                    <strong id="exercise3Percentage">0%</strong>
+                </div>
+
+            </div>
+
+            <div class="exercise-stats">
+
+        </section>
+
+    </main>
+
+    <script src="../js/appSettings.js"></script>
+    <script src="../js/stats.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="el">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Greek Piano — Τρόπος Σύνδεσης</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <main class="settings-container">
+
+        <button
+            class="settings-back-button"
+            onclick="window.location.href='index.html'">
+            ← Πίσω
+        </button>
+
+
+        <h1>🎹 Τρόπος Σύνδεσης</h1>
+
+
+        <!-- ================================ -->
+        <!-- ΕΠΙΛΟΓΗ ΤΡΟΠΟΥ ΣΥΝΔΕΣΗΣ -->
+        <!-- ================================ -->
+
+        <section class="settings-section">
+
+            <h2>🎼 Πηγή εισόδου</h2>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <strong>🎹 MIDI</strong>
+
+                    <p>
+                        Σύνδεσε το πιάνο μέσω καλωδίου MIDI
+                        για την πιο ακριβή αναγνώριση νοτών.
+                    </p>
+
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="radio"
+                        name="inputMode"
+                        id="midiInputMode"
+                        value="midi">
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <strong>🎤 Μικρόφωνο</strong>
+
+                    <p>
+                        Χρησιμοποίησε το μικρόφωνο της συσκευής
+                        για αναγνώριση των νοτών που παίζεις.
+                    </p>
+
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="radio"
+                        name="inputMode"
+                        id="microphoneInputMode"
+                        value="microphone">
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================ -->
+        <!-- ΤΕΣΤ ΣΥΝΔΕΣΗΣ -->
+        <!-- ================================ -->
+
+        <section class="settings-section">
+
+            <h2>🔍 Έλεγχος συσκευής</h2>
+
+
+            <div class="setting-test">
+
+                <h3>Τεστ ήχου / πλήκτρων</h3>
+
+                <p>
+                    Εδώ θα μπορείς να ελέγξεις αν η εφαρμογή
+                    λαμβάνει σωστά τις νότες από την επιλεγμένη
+                    πηγή εισόδου.
+                </p>
+
+                <div
+                    id="connectionTestStatus"
+                    class="test-status">
+
+                    ⚪ Επίλεξε τρόπο σύνδεσης
+
+                </div>
+
+                <div
+    id="pitchTestResult"
+    class="test-status">
+
+    🎵 Δεν έχει ανιχνευθεί νότα
+
+</div>
+
+                <button id="connectionTestButton">
+
+                    🔍 Έναρξη ελέγχου
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+<script src="js/appSettings.js"></script>
+<script src="js/inputManager.js"></script>
+<script src="js/midiInput.js"></script>
+<script src="js/microphoneInput.js"></script>
+<script src="js/connection-settings.js"></script>
+
+</body>
+
+</html>
