@@ -142,7 +142,7 @@ function ανιχνευσεPitch(handler) {
                 handler({
                     midiNote: midiNote,
                     frequency: συχνοτητα,
-                    volume: rms
+                    volume: volume
                 });
 
             }
@@ -155,7 +155,7 @@ function ανιχνευσεPitch(handler) {
             handler({
                 midiNote: null,
                 frequency: null,
-                volume: rms
+                volume: volume
             });
 
         }
