@@ -156,20 +156,23 @@ if (microphoneInputMode.checked) {
                 // Ένταση μικροφώνου
                 // --------------------------------
 
-                const volume =
-                    noteData.volume;
+               const volume =
+    Number(noteData.volume) || 0;
 
 
-                const ποσοστοΕντασης =
-                    Math.min(
-                        100,
-                        Math.round(
-                            volume * 1000
-                        )
-                    );
+const ποσοστοΕντασης =
+    Math.min(
+        100,
+        Math.round(
+            volume * 1000
+        )
+    );
 
 
-                if (noteData.midiNote !== null) {
+               if (
+    noteData.midiNote !== null &&
+    Number.isFinite(noteData.frequency)
+) {
 
                     pitchTestResult.textContent =
                         "🎵 Νότα: MIDI " +
