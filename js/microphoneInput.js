@@ -115,6 +115,12 @@ function ανιχνευσεPitch(handler) {
             );
 
 
+        const volume =
+    Number.isFinite(rms)
+        ? rms
+        : 0;
+
+        
         // --------------------------------
         // Αναγνώριση pitch
         // --------------------------------
@@ -176,9 +182,33 @@ function ανιχνευσεPitch(handler) {
 
 function βρεςΣυχνοτητα(buffer) {
 
-    // ------------------------------
-    // Έλεγχος έντασης σήματος
-    // ------------------------------
+    if (!microphoneContext) {
+        return null;
+    }
+
+
+    // --------------------------------
+    // Αφαίρεση DC offset
+    // --------------------------------
+
+    let mean = 0;
+
+    for (
+        let i = 0;
+        i < buffer.length;
+        i++
+    ) {
+
+        mean += buffer[i];
+
+    }
+
+    mean /= buffer.length;
+
+
+    // --------------------------------
+    // Υπολογισμός έντασης
+    // --------------------------------
 
     let rms = 0;
 
@@ -188,12 +218,13 @@ function βρεςΣυχνοτητα(buffer) {
         i++
     ) {
 
+        const sample =
+            buffer[i] - mean;
+
         rms +=
-            buffer[i] *
-            buffer[i];
+            sample * sample;
 
     }
-
 
     rms =
         Math.sqrt(
@@ -201,24 +232,21 @@ function βρεςΣυχνοτητα(buffer) {
         );
 
 
-    // Πολύ χαμηλό σήμα = σιωπή
+    // Πολύ αδύναμο σήμα
 
-    if (rms < 0.01) {
-
+    if (rms < 0.003) {
         return null;
-
     }
 
 
-    // ------------------------------
-    // Autocorrelation
-    // ------------------------------
+    // --------------------------------
+    // Περιοχή συχνοτήτων πιάνου
+    // --------------------------------
 
     const sampleRate =
         microphoneContext.sampleRate;
 
-
-    const minFrequency = 70;
+    const minFrequency = 60;
     const maxFrequency = 1200;
 
 
@@ -227,12 +255,15 @@ function βρεςΣυχνοτητα(buffer) {
             sampleRate / maxFrequency
         );
 
-
     const maxLag =
         Math.floor(
             sampleRate / minFrequency
         );
 
+
+    // --------------------------------
+    // Κανονικοποιημένη autocorrelation
+    // --------------------------------
 
     let καλύτεροLag = -1;
     let καλύτερηΣυσχέτιση = 0;
@@ -245,6 +276,8 @@ function βρεςΣυχνοτητα(buffer) {
     ) {
 
         let correlation = 0;
+        let energy1 = 0;
+        let energy2 = 0;
 
 
         for (
@@ -253,24 +286,47 @@ function βρεςΣυχνοτητα(buffer) {
             i++
         ) {
 
+            const sample1 =
+                buffer[i] - mean;
+
+            const sample2 =
+                buffer[i + lag] - mean;
+
+
             correlation +=
-                buffer[i] *
-                buffer[i + lag];
+                sample1 * sample2;
+
+            energy1 +=
+                sample1 * sample1;
+
+            energy2 +=
+                sample2 * sample2;
 
         }
 
 
-        correlation /=
-            buffer.length - lag;
+        if (
+            energy1 === 0 ||
+            energy2 === 0
+        ) {
+            continue;
+        }
+
+
+        const normalizedCorrelation =
+            correlation /
+            Math.sqrt(
+                energy1 * energy2
+            );
 
 
         if (
-            correlation >
+            normalizedCorrelation >
             καλύτερηΣυσχέτιση
         ) {
 
             καλύτερηΣυσχέτιση =
-                correlation;
+                normalizedCorrelation;
 
             καλύτεροLag =
                 lag;
@@ -280,11 +336,13 @@ function βρεςΣυχνοτητα(buffer) {
     }
 
 
-    // Δεν βρέθηκε αρκετά ισχυρή περιοδικότητα
+    // --------------------------------
+    // Έλεγχος ποιότητας
+    // --------------------------------
 
     if (
         καλύτεροLag === -1 ||
-        καλύτερηΣυσχέτιση < 0.001
+        καλύτερηΣυσχέτιση < 0.30
     ) {
 
         return null;
@@ -292,12 +350,17 @@ function βρεςΣυχνοτητα(buffer) {
     }
 
 
+    // --------------------------------
+    // Υπολογισμός συχνότητας
+    // --------------------------------
+
     const συχνοτητα =
         sampleRate /
         καλύτεροLag;
 
 
     if (
+        !Number.isFinite(συχνοτητα) ||
         συχνοτητα < minFrequency ||
         συχνοτητα > maxFrequency
     ) {
